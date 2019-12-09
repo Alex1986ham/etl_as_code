@@ -1,4 +1,3 @@
-
 import datetime
 import logging
 import cx_Oracle
@@ -49,7 +48,7 @@ def create_tables():
 
 def read_nolo_csv():
     try:
-        with open('input/nolo/bestand_00526778.csv', 'r') as f:
+        with open('/root/airflow/dags/etl_as_code/input/nolo/bestand_00526778.csv', 'r') as f:
             reader = csv.reader(f, delimiter=';') #(f, delimiter=';')
             next(reader) # skip the header row
             for row in reader:
