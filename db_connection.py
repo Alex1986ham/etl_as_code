@@ -1,13 +1,12 @@
-
 import datetime
 import logging
 import cx_Oracle
 import sys
 import csv
-#from airflow import DAG
-#from airflow.operators.python_operator import PythonOperator
+from airflow import DAG
+from airflow.operators.python_operator import PythonOperator
 import psycopg2
-from create_tables import create_table_bestandsload_nolo
+#from create_tables import create_table_bestandsload_nolo
 
 conn = psycopg2.connect("host=database-2.cf8dbsgfgk0h.us-west-2.rds.amazonaws.com port=5432 user=postgres password=alexanderdudko dbname=dwh2")
 cur = conn.cursor()
@@ -49,7 +48,7 @@ def create_tables():
 
 def read_nolo_csv():
     try:
-        with open('input/nolo/bestand_00526778.csv', 'r') as f:
+        with open('/root/airflow/dags/etl_as_code/input/nolo/bestand_00526778.csv', 'r') as f:
             reader = csv.reader(f, delimiter=';') #(f, delimiter=';')
             next(reader) # skip the header row
             for row in reader:
@@ -69,7 +68,7 @@ def read_nolo_csv():
 
 
 dag = DAG(
-        'DB_Connection',
+        'DB_Connection2',
         start_date=datetime.datetime.now() - datetime.timedelta(days=1))
 
 conn_task = PythonOperator(
