@@ -1,5 +1,5 @@
 create_table_bestandsload_nolo =    """
-                                    CREATE TABLE BESTANDSLOAD_NOLO
+                                    CREATE TABLE BESTANDSLOAD_NOLO_SHARE
 (
   artikelnr  varchar (200),
   LAGERORT                 varchar (200),
