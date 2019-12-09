@@ -4,10 +4,10 @@ import logging
 import cx_Oracle
 import sys
 import csv
-#from airflow import DAG
-#from airflow.operators.python_operator import PythonOperator
+from airflow import DAG
+from airflow.operators.python_operator import PythonOperator
 import psycopg2
-from create_tables import create_table_bestandsload_nolo
+#from create_tables import create_table_bestandsload_nolo
 
 conn = psycopg2.connect("host=database-2.cf8dbsgfgk0h.us-west-2.rds.amazonaws.com port=5432 user=postgres password=alexanderdudko dbname=dwh2")
 cur = conn.cursor()
@@ -69,7 +69,7 @@ def read_nolo_csv():
 
 
 dag = DAG(
-        'DB_Connection',
+        'DB_Connection2',
         start_date=datetime.datetime.now() - datetime.timedelta(days=1))
 
 conn_task = PythonOperator(
