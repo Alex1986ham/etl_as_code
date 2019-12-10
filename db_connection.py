@@ -94,25 +94,25 @@ dag = DAG(
         start_date=datetime.datetime.now() - datetime.timedelta(days=1))
 
 conn_task = PythonOperator(
-    task_id="Verbindung_zu_Postgres-DB",
+    task_id="Connect_to_Postgres-DB",
     python_callable=conn_oracle,
     dag=dag
 )
 
 cursor_task = PythonOperator(
-        task_id="Erstelle_Cursor_zur_Postgres-DB",
+        task_id="Create_DB-Cursor",
         python_callable=create_cursor,
         dag=dag
         )
 
 read_nolo_csv_task = PythonOperator(
-        task_id="Lese_die_Nolo.csv_ein_und_schreibe_diese_in_die_Tabelle_bestandsload_nolo",
+        task_id="read csv_Nolo_write_to_DB",
         python_callable=read_nolo_csv,
         dag=dag
         )
 
 read_nolo_share_csv_task = PythonOperator(
-        task_id="Lese_die_Nolo_share.csv_ein_und_schreibe_diese_in_die_Tabelle_bestandsload_nolo",
+        task_id="read csv_NoloShare_write_to_DB",
         python_callable=read_nolo_share_csv,
         dag=dag
         )
