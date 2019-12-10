@@ -105,13 +105,13 @@ cursor_task = PythonOperator(
         )
 
 read_nolo_csv_task = PythonOperator(
-        task_id="read csv_Nolo_write_to_DB",
+        task_id="read_csv_Nolo_write_to_DB",
         python_callable=read_nolo_csv,
         dag=dag
         )
 
 read_nolo_share_csv_task = PythonOperator(
-        task_id="read csv_NoloShare_write_to_DB",
+        task_id="read_csv_NoloShare_write_to_DB",
         python_callable=read_nolo_share_csv,
         dag=dag
         )
