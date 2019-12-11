@@ -84,7 +84,7 @@ dag = DAG(
         email_on_failure=True,
         email_on_retry=True,
         retries=1,
-        retry_delay=timedelta(minutes=1),
+        #retry_delay=timedelta(minutes=1),
         schedule_interval='* * * * *',
         #default_args=default_args,
         #start_date=datetime.datetime.now() - datetime.timedelta(days=1)
