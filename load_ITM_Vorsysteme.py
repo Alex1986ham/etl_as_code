@@ -45,7 +45,7 @@ def delete_ODS_KERN_TMP_MMDB_STYLE():
 
 def read_MMDB_csv_write_db():
     try:
-        with open('mnt/I/obiatotto/_Übergreifende Themen und Projekte/OPIS/Schnittstelle/Schnittstellen_Templates_endgueltig/APEX_MMDB/MMDB.csv', 'r') as f:
+        with open('/mnt/I/obiatotto/_Übergreifende Themen und Projekte/OPIS/Schnittstelle/Schnittstellen_Templates_endgueltig/APEX_MMDB/MMDB.csv', 'r') as f:
             reader = csv.reader(f, delimiter=';')
             included_cols = [1, 0, 2, 6, 7, 8]  #  [2, 1, 3, 7, 5, 8, 9]
             next(reader) # skip the header row
