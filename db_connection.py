@@ -87,7 +87,7 @@ def read_nolo_share_csv():
 # (%s, %s, %s, %s, %s, %s)
  #(artikelnr, LAGERORT, RESERVIERTEMENGE, LAGERSTANDORT, MENGEFUERAUFTRAEGE, MENGE)
 
-
+"""
 dag = DAG(
         'bestands_load',
         start_date=datetime.datetime.now() - datetime.timedelta(days=1))
@@ -119,6 +119,9 @@ read_nolo_share_csv_task = PythonOperator(
 conn_task >> cursor_task
 cursor_task >> read_nolo_csv_task
 cursor_task >> read_nolo_share_csv_task
+"""
+
+
 
 #conn_oracle()
 #create_cursor()
