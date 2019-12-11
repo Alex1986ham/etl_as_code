@@ -79,8 +79,8 @@ default_args = {
 dag = DAG(
         'Load_ITM_Vorsysteme',
         #catchup=False, 
-        'owner' : 'BD-BI',
-        'depends_on_past' : False,
+        'owner': 'BD-BI',
+        'depends_on_past': False,
         'start_date': datetime(2019, 12, 11),
         'email': ['alexander.dudko@baumarktdirekt.de'],
         'email_on_failure': True,
