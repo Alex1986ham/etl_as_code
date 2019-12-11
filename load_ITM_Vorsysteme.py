@@ -80,7 +80,7 @@ default_args = {
 
 dag = DAG(
         'Load_ITM_Vorsysteme',
-        owner='BD-BI',
+        'owner'='BD-BI',
         start_date=datetime.datetime.now() - datetime.timedelta(days=1),
         schedule_interval='* * * * *',
 )
