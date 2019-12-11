@@ -61,9 +61,26 @@ def read_MMDB_csv_write_db():
         print(e)
 
 
+
+# Hier beginnt die Spezifizierung des DAGs
+
+default_args = {
+    'owner': 'BD-BI',
+    'depends_on_past' : False,
+    'start_date': datetime(2019, 12, 11),
+    'email': ['alexander.dudko@baumarktdirekt.de'],
+    'email_on_failure': True,
+    'email_on_retry': True,
+    'retries': 1,
+    'retry_delay': timedelta(minutes=1),
+    'schedule_interval': '* * * * *'
+}
+
 dag = DAG(
         'Load_ITM_Vorsysteme',
-        start_date=datetime.datetime.now() - datetime.timedelta(days=1))
+        default_args=default_args
+        #start_date=datetime.datetime.now() - datetime.timedelta(days=1)
+        )
 
 conn_task = PythonOperator(
     task_id="conn_Oracle",
