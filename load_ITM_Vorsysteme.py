@@ -80,11 +80,8 @@ default_args = {
 
 dag = DAG(
         'Load_ITM_Vorsysteme',
-        email=['alexander.dudko@baumarktdirekt.de'],
-        email_on_failure=True,
-        email_on_retry=True,
         start_date=datetime.datetime.now() - datetime.timedelta(days=1),
-        schedule_interval='* * * * *',
+        schedule_interval='0 8 * * *',
 )
 
 """
