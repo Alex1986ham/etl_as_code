@@ -60,7 +60,7 @@ def read_MMDB_csv_write_db():
 
 
 dag = DAG(
-        'Load_IMS_Vorsysteme',
+        'Load_ITM_Vorsysteme',
         start_date=datetime.datetime.now() - datetime.timedelta(days=1))
 
 conn_task = PythonOperator(
@@ -75,22 +75,25 @@ cursor_task = PythonOperator(
         dag=dag
         )
 
-cursor_task = PythonOperator(
+delete_ODS_KERN_TMP_MMDB_STYLE = PythonOperator(
         task_id="delete_ODS_KERN_TMP_MMDB_STYLE",
         python_callable=delete_ODS_KERN_TMP_MMDB_STYLE,
         dag=dag
         )
 
 
-cursor_task = PythonOperator(
+read_MMDB_csv_write_db = PythonOperator(
         task_id="read_MMDB_csv_write_db",
         python_callable=read_MMDB_csv_write_db,
         dag=dag
         )
 
+conn_task >> cursor_task
+cursor_task >> delete_ODS_KERN_TMP_MMDB_STYLE
+delete_ODS_KERN_TMP_MMDB_STYLE >> read_MMDB_csv_write_db
 
 #conn_oracle()
 #create_cursor()
-delete_ODS_KERN_TMP_MMDB_STYLE()
-read_MMDB_csv()
+#delete_ODS_KERN_TMP_MMDB_STYLE()
+#read_MMDB_csv()
 #test_select()
