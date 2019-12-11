@@ -64,6 +64,7 @@ def read_MMDB_csv_write_db():
 
 # Hier beginnt die Spezifizierung des DAGs
 
+"""
 default_args = {
     'owner': 'BD-BI',
     'depends_on_past' : False,
@@ -75,7 +76,13 @@ default_args = {
     'retry_delay': timedelta(minutes=1),
     'schedule_interval': '* * * * *',
 }
+"""
 
+dag = DAG(
+        'Load_ITM_Vorsysteme',
+        start_date=datetime.datetime.now() - datetime.timedelta(days=1))
+
+"""
 dag = DAG(
         'Load_ITM_Vorsysteme',
         #'depends_on_past':False,
@@ -89,6 +96,9 @@ dag = DAG(
         #default_args=default_args,
         #start_date=datetime.datetime.now() - datetime.timedelta(days=1)
         )
+"""
+
+
 
 conn_task = PythonOperator(
     task_id="conn_Oracle",
