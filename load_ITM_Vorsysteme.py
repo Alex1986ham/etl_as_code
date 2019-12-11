@@ -83,7 +83,6 @@ dag = DAG(
         email=['alexander.dudko@baumarktdirekt.de'],
         email_on_failure=True,
         email_on_retry=True,
-        retries=1,
         start_date=datetime.datetime.now() - datetime.timedelta(days=1),
         schedule_interval='* * * * *',
 )
