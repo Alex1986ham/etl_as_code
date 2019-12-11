@@ -80,7 +80,9 @@ default_args = {
 
 dag = DAG(
         'Load_ITM_Vorsysteme',
-        start_date=datetime.datetime.now() - datetime.timedelta(days=1))
+        start_date=datetime.datetime.now() - datetime.timedelta(days=1),
+        schedule_interval='* * * * *',
+)
 
 """
 dag = DAG(
