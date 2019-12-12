@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import datetime
+import datetime, timedelta
 import logging
 import cx_Oracle
 import sys
@@ -81,7 +81,7 @@ default_args = {
 dag = DAG(
         'Load_ITM_Vorsysteme',
         start_date=datetime.datetime.now() - datetime.timedelta(days=1),
-        schedule_interval='46 8 * * *',
+        schedule_interval='58 9 * * *',
 )
 
 """
