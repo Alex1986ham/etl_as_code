@@ -86,8 +86,8 @@ dag = DAG(
         'Load_ITM_Vorsysteme',
         catchup=False, 
         #default_args=default_args,
-        start_date=datetime.datetime.now() - datetime.timedelta(days=1),
-        schedule_interval='30 09 * * *',
+        start_date=datetime.datetime.now(), #- datetime.timedelta(days=1),
+        schedule_interval='35 9 * * *',
 )
 
 """
