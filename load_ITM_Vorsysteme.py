@@ -11,7 +11,7 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 
 
-
+"""
 default_args = {
     'owner': 'Airflow',
     'depends_on_past': False,
@@ -23,7 +23,7 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
     'schedule_interval': '23 9 * * *',
 }
-
+"""
 
 # Roedl conn = cx_Oracle.connect('DBTeam/DDfO10g@10.107.30.127/BMD_OPISDWH')
 conn = cx_Oracle.connect('STG01/oaoadmin@BDOPIS1/DWH1') # Keller
@@ -87,7 +87,7 @@ dag = DAG(
         catchup=False, 
         #default_args=default_args,
         start_date=datetime.datetime.now() - datetime.timedelta(days=1),
-        schedule_interval='27 9 * * *',
+        schedule_interval='28 9 * * *',
 )
 
 """
