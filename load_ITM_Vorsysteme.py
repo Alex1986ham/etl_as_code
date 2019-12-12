@@ -85,9 +85,9 @@ def read_MMDB_csv_write_db():
 dag = DAG(
         'Load_ITM_Vorsysteme',
         catchup=False, 
-        default_args=default_args,
-        #start_date=datetime.datetime.now(),  #- datetime.timedelta(days=1),
-        #schedule_interval='19 9 * * *',
+        #default_args=default_args,
+        start_date=datetime.datetime.now() - datetime.timedelta(days=1),
+        schedule_interval='27 9 * * *',
 )
 
 """
