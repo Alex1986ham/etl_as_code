@@ -65,24 +65,24 @@ def read_MMDB_csv_write_db():
 
 # Hier beginnt die Spezifizierung des DAGs
 
-"""
 default_args = {
-    'owner': 'BD-BI',
-    'depends_on_past' : False,
-    'start_date': datetime(2019, 12, 11),
-    'email': ['alexander.dudko@baumarktdirekt.de'],
-    'email_on_failure': True,
-    'email_on_retry': True,
+    'owner': 'Airflow',
+    'depends_on_past': False,
+    'start_date': datetime(2019, 12, 12),
+    'email': ['airflow@example.com'],
+    'email_on_failure': False,
+    'email_on_retry': False,
     'retries': 1,
-    'retry_delay': timedelta(minutes=1),
-    'schedule_interval': '* * * * *',
-}
-"""
+    'retry_delay': timedelta(minutes=5),
+    'schedule_interval': '18 9 * * *',
+
 
 dag = DAG(
         'Load_ITM_Vorsysteme',
-        start_date=datetime.datetime.now(),  #- datetime.timedelta(days=1),
-        schedule_interval='13 9 * * *',
+        catchup=False, 
+        default_args=default_args
+        #start_date=datetime.datetime.now(),  #- datetime.timedelta(days=1),
+        #schedule_interval='13 9 * * *',
 )
 
 """
