@@ -75,14 +75,14 @@ default_args = {
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
     'schedule_interval': '18 9 * * *',
-
+}
 
 dag = DAG(
         'Load_ITM_Vorsysteme',
         catchup=False, 
-        default_args=default_args
+        default_args=default_args,
         #start_date=datetime.datetime.now(),  #- datetime.timedelta(days=1),
-        #schedule_interval='13 9 * * *',
+        #schedule_interval='19 9 * * *',
 )
 
 """
