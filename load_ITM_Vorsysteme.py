@@ -6,8 +6,24 @@ import logging
 import cx_Oracle
 import sys
 import csv
+import airflow
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
+
+
+
+default_args = {
+    'owner': 'Airflow',
+    'depends_on_past': False,
+    'start_date': datetime(2019, 12, 12),
+    'email': ['airflow@example.com'],
+    'email_on_failure': False,
+    'email_on_retry': False,
+    'retries': 1,
+    'retry_delay': timedelta(minutes=5),
+    'schedule_interval': '23 9 * * *',
+}
+
 
 # Roedl conn = cx_Oracle.connect('DBTeam/DDfO10g@10.107.30.127/BMD_OPISDWH')
 conn = cx_Oracle.connect('STG01/oaoadmin@BDOPIS1/DWH1') # Keller
@@ -65,17 +81,6 @@ def read_MMDB_csv_write_db():
 
 # Hier beginnt die Spezifizierung des DAGs
 
-default_args = {
-    'owner': 'Airflow',
-    'depends_on_past': False,
-    'start_date': datetime(2019, 12, 12),
-    'email': ['airflow@example.com'],
-    'email_on_failure': False,
-    'email_on_retry': False,
-    'retries': 1,
-    'retry_delay': timedelta(minutes=5),
-    'schedule_interval': '18 9 * * *',
-}
 
 dag = DAG(
         'Load_ITM_Vorsysteme',
