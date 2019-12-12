@@ -87,7 +87,7 @@ dag = DAG(
         catchup=False, 
         #default_args=default_args,
         start_date=datetime.datetime.now() - datetime.timedelta(days=1),
-        schedule_interval='28 9 * * *',
+        schedule_interval='29 9 * * *',
 )
 
 """
